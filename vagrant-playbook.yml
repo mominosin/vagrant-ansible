@@ -8,6 +8,7 @@
       - tmux
       - nginx
       - openjdk-7-jdk
+      - build-essential
   - name: pip install
     pip:  name={{ item }}
     with_items:
@@ -18,3 +19,9 @@
 
   - name: install ruby
     include: ruby.yml
+
+  - name: install gem
+    include: gem.yml
+
+  - name: install gem
+    include: zsh.yml

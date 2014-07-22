@@ -1,0 +1,6 @@
+- name: install zsh
+  apt:  name=zsh
+
+- name: copy zshrc
+  sudo: no
+  copy: src=file/zshrc dest=~/.zshrc

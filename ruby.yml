@@ -3,4 +3,7 @@
 - apt_repository: repo='ppa:brightbox/ruby-ng'
     update_cache=yes
 
-- apt: name=ruby2.1
+- apt: name={{ item }}
+  with_items:
+    - ruby2.1
+    - ruby2.1-dev
