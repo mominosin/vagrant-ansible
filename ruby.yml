@@ -1,0 +1,6 @@
+- apt: name=python-software-properties
+
+- apt_repository: repo='ppa:brightbox/ruby-ng'
+    update_cache=yes
+
+- apt: name=ruby2.1

@@ -15,3 +15,6 @@
       - awscli
   - name: install scala
     include: scala.yml
+
+  - name: install ruby
+    include: ruby.yml
