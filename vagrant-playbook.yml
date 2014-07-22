@@ -1,0 +1,8 @@
+- hosts: local
+  user: vagrant
+  sudo: yes
+  tasks:
+  - name: pip install
+    pip:  name={{ item }}
+    with_items:
+      - fabric
