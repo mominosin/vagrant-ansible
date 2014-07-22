@@ -2,7 +2,16 @@
   user: vagrant
   sudo: yes
   tasks:
+  - name: apt install
+    apt:  name={{ item }} update_cache=yes
+    with_items:
+      - tmux
+      - nginx
+      - openjdk-7-jdk
   - name: pip install
     pip:  name={{ item }}
     with_items:
       - fabric
+      - awscli
+  - name: install scala
+    include: scala.yml

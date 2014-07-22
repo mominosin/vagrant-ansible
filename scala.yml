@@ -1,0 +1,9 @@
+- get_url: url=http://downloads.typesafe.com/scala/2.11.1/scala-2.11.1.deb?_ga=1.232093143.913909074.1406012587 
+    dest=/tmp/scala.deb
+
+- apt: deb=/tmp/scala.deb
+
+- get_url: url=http://dl.bintray.com/sbt/debian/sbt-0.13.5.deb
+    dest=/tmp/sbt.deb
+
+- apt: deb=/tmp/sbt.deb
