@@ -4,3 +4,6 @@
 - name: copy zshrc
   sudo: no
   copy: src=file/zshrc dest=~/.zshrc
+
+- name: change default shell
+  user: name=vagrant shell=/usr/bin/zsh

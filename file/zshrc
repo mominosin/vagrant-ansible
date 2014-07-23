@@ -120,6 +120,9 @@ esac
 ### Aliases ###
 alias r=rails
 alias v=vim
+alias ll='ls -alF --color=auto'
+alias la='ls -aF  --color=auto'
+alias l='ls -1F   --color=auto'
 
 # cdコマンド実行後、lsを実行する
 #function cd() {

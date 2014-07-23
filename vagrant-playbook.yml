@@ -6,9 +6,11 @@
     apt:  name={{ item }} update_cache=yes
     with_items:
       - tmux
+      - vim
       - nginx
       - openjdk-7-jdk
       - build-essential
+      - nkf
   - name: pip install
     pip:  name={{ item }}
     with_items:
