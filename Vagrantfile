@@ -8,7 +8,7 @@ VAGRANTFILE_API_VERSION = "2"
 $script = <<SCRIPT
 sudo apt-get install python-setuptools
 sudo easy_install pip
-sudo pip install ansible
+sudo pip install ansible -U
 cd /vagrant
 ansible-playbook -i hosts vagrant-playbook.yml
 SCRIPT
