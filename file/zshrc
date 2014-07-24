@@ -134,3 +134,12 @@ alias l='ls -1F   --color=auto'
 PATH="/opt/mysql/server-5.6/bin:$PATH"
 MANPATH="/opt/mysql/server-5.6/man:$MANPATH"
 
+# 既にtmuxを起動してないか
+if [ "$TMUX" = "" ]; then
+    tmux attach;
+
+    # detachしてない場合
+    if [ $? ]; then
+        tmux;
+    fi
+fi
