@@ -11,6 +11,7 @@
       - openjdk-7-jdk
       - build-essential
       - nkf
+      - jq
   - name: pip install
     pip:  name={{ item }}
     with_items:
