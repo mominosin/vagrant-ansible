@@ -6,7 +6,8 @@ VAGRANTFILE_API_VERSION = "2"
 
 
 $script = <<SCRIPT
-sudo apt-get install python-setuptools
+sudo apt-get update
+sudo apt-get install python-setuptools -y
 sudo easy_install pip
 sudo pip install ansible -U
 cd /vagrant
