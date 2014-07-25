@@ -1,0 +1,41 @@
+- name: download mysql5.6 deb package
+  get_url: url=http://dev.mysql.com/get/mysql-apt-config_0.2.1-1ubuntu14.04_all.deb
+    dest=/tmp/mysql-apt-config.deb
+
+- name: add apt-config
+  apt: deb=/tmp/mysql-apt-config.deb
+
+- name: mysql install 
+  apt: name=mysql-server-5.6 update_cache=yes force=yes
+
+#- name: apt
+#  apt: name={{ item }}
+#  with_items:
+#    - libaio1
+#
+#- name: download mysql5.6 deb package
+#  get_url: url=http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-community-server_5.6.19-1ubuntu14.04_amd64.deb
+#    dest=/tmp/mysql-comunitiy.deb
+#
+#- name: download mysql5.6 deb package
+#  get_url: url=http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-server_5.6.19-1ubuntu14.04_amd64.deb
+#    dest=/tmp/mysql-server.deb
+#
+#- name: download mysql5.6 deb package
+#  get_url: url=http://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-common_5.6.19-1ubuntu14.04_amd64.deb
+#    dest=/tmp/mysql-common.deb
+#
+#- name: install mysql deb
+#  command: dpkg -i /tmp/mysql-comunitiy.deb /tmp/mysql-server.deb /tmp/mysql-common.deb
+
+#- name: install mysql deb
+#  apt: deb=/tmp/mysql-comunitiy.deb
+#    force=yes
+#
+#- name: install mysql deb
+#  apt: deb=/tmp/mysql-server.deb
+#    force=yes
+#
+#- name: install mysql deb
+#  apt: deb=/tmp/mysql-common.deb
+#    force=yes

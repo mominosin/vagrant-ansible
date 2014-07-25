@@ -26,5 +26,8 @@
   - name: install gem
     include: gem.yml
 
-  - name: install gem
+  - name: install zsh
     include: zsh.yml
+
+  - name: install mysql
+    include: mysql.yml
