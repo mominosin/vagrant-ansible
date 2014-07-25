@@ -1,0 +1,27 @@
+- name: install apt package
+  apt:  name=apt-transport-https
+
+- name: add docker apt key
+  command: apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 36A1D7869245C8950F966E92D8576A8BA88D21E9
+#  apt_key: keyserver=hkp://keyserver.ubuntu.com:80 
+#    id=36A1D7869245C8950F966E92D8576A8BA88D21E9
+
+- name: add docker repo
+  apt_repository: repo='deb https://get.docker.io/ubuntu docker main'
+
+- name: install docker 
+  apt: name=lxc-docker update_cache=yes cache_valid_time=3600
+    
+- name: change docker option
+  lineinfile: dest=/etc/init/docker.conf
+    regexp=DOCKER_OPTS=
+    line="DOCKER_OPTS='-H 127.0.0.1:4243'"
+
+- name: change docker option
+  sudo: no
+  lineinfile: dest=~/.zshrc
+    line='export DOCKER_HOST=tcp://127.0.0.1:4243'
+
+- name: docker restart
+  service: name=docker
+    state=restarted

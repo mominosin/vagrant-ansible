@@ -31,3 +31,7 @@
 
   - name: install mysql
     include: mysql.yml
+
+  - name: install docker
+    include: docker.yml
+    tags: docker
