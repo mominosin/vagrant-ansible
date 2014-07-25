@@ -1,0 +1,26 @@
+- name: install unzip
+  apt: name=unzip
+
+- name: create packer directory
+  sudo: no
+  file: path=~/packer/ state=directory
+
+- name: get packer binary
+  sudo: no
+  get_url: url=https://dl.bintray.com/mitchellh/packer/0.6.1_linux_amd64.zip
+    dest=~/packer/packer.zip
+
+- name: unzip packer.zip
+  sudo: no
+  command: unzip packer.zip
+    chdir=~/packer
+
+- name: rm zip
+  sudo: no
+  command: rm packer.zip
+    chdir=~/packer
+
+- name: add enviroment
+  sudo: no
+  lineinfile: dest=~/.zshrc
+    line='export PATH=$PATH:~/packer'

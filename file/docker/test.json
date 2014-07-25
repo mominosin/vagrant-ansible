@@ -1,0 +1,25 @@
+{
+  "builders": [
+    {
+      "type": "docker",
+      "image": "densuke/trusty-jp",
+      "export_path": "docker_go_webdb.tar"
+    }
+  ],
+  "provisioners": [
+    {
+      "type": "shell",
+      "inline": [
+        "apt-get install -y gcc python-dev python-setuptools",
+        "easy_install pip",
+        "pip install ansible -U"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "test/mongodb.yml",
+      "extra_arguments": "-v",
+      "inventory_file": "test/hosts"
+    }
+  ]
+}

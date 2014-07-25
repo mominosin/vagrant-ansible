@@ -1,0 +1,15 @@
+- name: get vagrant deb
+  get_url: url=https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.3_x86_64.deb 
+    dest=/tmp/vagrant.deb
+
+- name: vagrant install
+  apt: deb=/tmp/vagrant.deb
+
+- name: create vagrant directory
+  sudo: no
+  file: path=~/vagrant/ state=directory
+
+- name: vagrant init
+  sudo: no
+  command: vagrant init
+    chdir=~/vagrant/

@@ -25,6 +25,7 @@
 
   - name: install gem
     include: gem.yml
+    tags: gem
 
   - name: install zsh
     include: zsh.yml
@@ -35,3 +36,12 @@
   - name: install docker
     include: docker.yml
     tags: docker
+ 
+  - name: vagrant setup
+    include: vagrant.yml
+    tags: vagrant
+
+  - name: packer setup
+    include: packer.yml
+    tags: packer
+
